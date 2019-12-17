@@ -1,0 +1,12 @@
+https://www.journaldev.com/1617/chain-of-responsibility-design-pattern-in-java
+
+Bài toán ATM:
+
+Khi ra ngoài rút tiền, atm sẽ phải check xem số tiền người dùng muốn rút có thỏa mãn hay không.
+Đầu tiên, nó check nếu
+- Chia hết cho 50 -> ok thực hiện nhả tiền
+- Nếu k, pass xuống để check chia hết 20 -> ok thì nhà tiền hoặc k thì pass
+- Check last: chia hết cho 10. Nếu k thỏa mãn thì báo số tiền k hợp lệ.
+
+Ở đây có thể coi yêu cầu rút tiền là 1 request.
+Request này sẽ đc pass qua 1 chuỗi các Bộ xử lý có thứ tự. Ở ví dụ này là : XuLy50 -> XuLy20 -> XuLy10

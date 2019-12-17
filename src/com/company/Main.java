@@ -4,11 +4,16 @@ import com.company.adapter.AdapterNewSystem;
 import com.company.adapter.NewSystem;
 import com.company.adapter.OldSystemImpl;
 import com.company.bridge.*;
+import com.company.chain.*;
 import com.company.decorator.BasicCar;
 import com.company.decorator.Car;
 import com.company.decorator.LuxuryCar;
 import com.company.decorator.SportsCar;
 import com.company.iterator.CollectionBox;
+import com.company.proxy.CommandExecutor;
+import com.company.proxy.CommandExecutorProxy;
+
+import java.util.Scanner;
 
 public class Main {
 
@@ -83,5 +88,39 @@ public class Main {
 
         Car sportsLuxuryCar = new SportsCar(new LuxuryCar(new BasicCar()));
         sportsLuxuryCar.assemble();
+    }
+
+    private static void proxyDemo() {
+        CommandExecutor executor = new CommandExecutorProxy("Pankaj", "wrong_pwd");
+        try {
+            executor.runCommand("ls -ltr");
+            executor.runCommand(" rm -rf abc.pdf");
+        } catch (Exception e) {
+            System.out.println("Exception Message::"+e.getMessage());
+        }
+    }
+
+    private static void chainDemo() {
+        // initialize the chain
+        DispenseChain c1 = new Dollar50Dispenser();
+        DispenseChain c2 = new Dollar20Dispenser();
+        DispenseChain c3 = new Dollar10Dispenser();
+
+        // set the chain of responsibility
+        c1.setNextChain(c2);
+        c2.setNextChain(c3);
+
+        while (true) {
+            int amount = 0;
+            System.out.println("Enter amount to dispense");
+            Scanner input = new Scanner(System.in);
+            amount = input.nextInt();
+            if (amount % 10 != 0) {
+                System.out.println("Amount should be in multiple of 10s.");
+                return;
+            }
+            // process the request
+            c1.dispense(new Currency(amount));
+        }
     }
 }
