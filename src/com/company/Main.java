@@ -3,6 +3,11 @@ package com.company;
 import com.company.adapter.AdapterNewSystem;
 import com.company.adapter.NewSystem;
 import com.company.adapter.OldSystemImpl;
+import com.company.bridge.*;
+import com.company.decorator.BasicCar;
+import com.company.decorator.Car;
+import com.company.decorator.LuxuryCar;
+import com.company.decorator.SportsCar;
 import com.company.iterator.CollectionBox;
 
 public class Main {
@@ -57,7 +62,26 @@ public class Main {
         }
     }
 
-    private static void builderDemo() {
+    /**
+     * Sau có thêm color nào cũng chỉ cần impl Color interface là có thể pass vào shape mà k cần change code shape
+     */
+    private static void bridgeDemo() {
+        Shape tri = new Triangle(new RedColor());
+        tri.applyColor();
 
+        Shape pent = new Pentagon(new GreenColor());
+        pent.applyColor();
+    }
+
+    /**
+     * Với decorator, dễ dàng thêm các tính năng khác nhau cho obj. Ví dụ 1 ô tô vừa là xe sang, vừa là xe thể thao.
+     */
+    private static void decoratorDemo() {
+        Car sportsCar = new SportsCar(new BasicCar());
+        sportsCar.assemble();
+        System.out.println("\n*****");
+
+        Car sportsLuxuryCar = new SportsCar(new LuxuryCar(new BasicCar()));
+        sportsLuxuryCar.assemble();
     }
 }

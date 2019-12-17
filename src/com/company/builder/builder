@@ -1,3 +1,5 @@
+https://gpcoder.com/4434-huong-dan-java-design-pattern-builder/
+
 Khi 1 obj có nhiều param. Có những cái là bắt buộc, có cái là optional. Nếu nhiều param như vậy mà cho vào constructor
 thì k ổn về cả mặt thẩm mĩ và còn dễ nhầm.
 
