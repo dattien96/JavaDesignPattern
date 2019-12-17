@@ -1,0 +1,15 @@
+Khi 1 obj có nhiều param. Có những cái là bắt buộc, có cái là optional. Nếu nhiều param như vậy mà cho vào constructor
+thì k ổn về cả mặt thẩm mĩ và còn dễ nhầm.
+
+Ta có thể làm với setter. Nhwung nếu muốn construct 1 obj bất biến dạng val ngay từ đầu thì set cũng k làm đc. Do đã
+lhoiwr tạo r thì k gọi đc set nữa. CÒn với builder thì về bản chất vẫn chỉ là build 1 phát duy nhất từ lúc tạo obj.
+
+Builder Pattern được xây dựng để khắc phục một số nhược điểm của Factory Pattern và Abstract Factory Pattern
+khi mà Object có nhiều thuộc tính.
+
+Có ba vấn đề chính với  Factory Pattern và Abstract Factory Pattern khi Object có nhiều thuộc tính:
+
+- Quá nhiều tham số phải truyền vào từ phía client tới Factory Class.
+- Một số tham số có thể là tùy chọn nhưng trong Factory Pattern, chúng ta phải gửi tất cả tham số,
+với tham số tùy chọn nếu không nhập gì thì sẽ truyền là null.
+- Nếu một Object có quá nhiều thuộc tính thì việc tạo sẽ phức tạp.

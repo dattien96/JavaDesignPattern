@@ -1,0 +1,38 @@
+Mục đích:
+- Cung cấp cách thức để truy cập các phần tử của 1 obj tổng một cách tuần tự
+- Client sẽ không được phép truy cập cụ thể vào collection, cũng như k biết về cấu trúc của nó.
+
+Ở vd dưới, ta có thể lấy ra trực tiếp list trong obj box.
+Do đó client hoàn toàn có thể vô tình xóa hoặc sửa data.
+
+-> Mục đích của thằng iterator pattern là để client chỉ có quyền duyệt data mà k sửa đổi đc gì.
+------------------------------
+class IntegerBox {
+    private final List<Integer> list = new ArrayList<>();
+
+    public void add(int in) {
+        list.add(in);
+    }
+
+    public List getData() {
+        return list;
+    }
+}
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        IntegerBox box = new IntegerBox();
+        for (int i = 9; i > 0; --i) {
+            box.add(i);
+        }
+        Collection integerList = box.getData();
+        for (Object anIntegerList : integerList) {
+            System.out.print(anIntegerList + "  ");
+        }
+        System.out.println();
+        integerList.clear();
+        integerList = box.getData();
+        System.out.println("size of data is: " + integerList.size());
+    }
+}
+------------------

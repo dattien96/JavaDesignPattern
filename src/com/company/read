@@ -1,0 +1,21 @@
+Creational design patterns
+- Builder
+- Factory
+- Prototype
+- Singleton
+
+
+Structural design patterns
+- Adapter
+- Bridge
+- Decorator
+- Composite
+- Proxy
+
+
+Behavioral design patterns
+- Chain
+- Command
+- Iterator
+- Mediator
+- Observer
