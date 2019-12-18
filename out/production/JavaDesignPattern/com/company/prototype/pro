@@ -1,0 +1,4 @@
+Pattern thực hiện việc clone 1 obj thay vì phải new từ đầu, dùng clone của java. Nếu đã có 1 obj đc khởi tạo trc đó. Và với lương attr lớn
+khiến việc new lại mất time
+Doc về clone trong java: https://gpcoder.com/2361-object-cloning-trong-java/
+https://gpcoder.com/4413-huong-dan-java-design-pattern-prototype/

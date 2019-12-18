@@ -1,0 +1,20 @@
+https://gpcoder.com/4574-huong-dan-java-design-pattern-decorator/
+
+Decorator design pattern is used to modify the functionality of an object 'at runtime'.
+
+decorator_before:
+Với cấu trúc này, ta có thể tạo obj riêng lẻ thì ok. Ví dụ tạo 1 xe ô tô thường, 1 ô tô thể thao hay otoo sang.
+
+Nhưng khi spec yêu cầu 1 ô tô vừa là xe sang vừa là xe thể thao?-> ok có thể tạo class SportLuxuryCar.
+
+Nhưng nếu có thêm hàng nghìn các tính năng khác như
+Ô tô sport + luxury + A
+Ô tô sport + luxury + B
+Ô tô sport + luxury + A + B
+.....
+Thì k thể tạo hàng nghìn class như vậy.
+
+Dùng decorator sẽ cho phép tạo ra obj có các add-function tại run time
+
+Car sportsLuxuryCar = new SportsCar(new LuxuryCar(new BasicCar()));
+-> Như trên thì obj vẫn ref đền Car, nhwung impl của nó đã mang cả thuộc tính của xe sport và luxury

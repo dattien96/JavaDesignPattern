@@ -1,7 +1,11 @@
+https://gpcoder.com/4724-huong-dan-java-design-pattern-iterator/
+
 Mục đích:
 - Cung cấp cách thức để truy cập các phần tử của 1 obj tổng một cách tuần tự
-- Client sẽ không được phép truy cập cụ thể vào collection, cũng như k biết về cấu trúc của nó.
+- Client sẽ không được phép truy cập cụ thể vào collection, cũng như k biết về cấu trúc của nó => k làm thay đổi đc data
 
+Ngoài ra về bản chất, pattern này cũng mang ý nghĩa tách biệt phần data với thuật toán.
+---------------------------------
 Ở vd dưới, ta có thể lấy ra trực tiếp list trong obj box.
 Do đó client hoàn toàn có thể vô tình xóa hoặc sửa data.
 

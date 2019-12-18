@@ -1,0 +1,65 @@
+Đơn giản chỉ là 1 class có fun giúp tạo ra các instance tương ứng của 1 obj (tạo subclass)
+
+Loại factory thường
+public class ComputerFactory {
+    public static Computer getComputer(String type, String ram, String hdd, String cpu){
+        if("PC".equalsIgnoreCase(type)) return new PC(ram, hdd, cpu);
+        else if("Server".equalsIgnoreCase(type)) return new Server(ram, hdd, cpu);
+
+        return null;
+    }
+}
+
+--------------------------
+Loại abstract factory
+
+public interface ComputerAbstractFactory {
+	public Computer createComputer();
+}
+---------
+
+public class PCFactory implements ComputerAbstractFactory {
+
+	private String ram;
+	private String hdd;
+	private String cpu;
+
+	public PCFactory(String ram, String hdd, String cpu){
+		this.ram=ram;
+		this.hdd=hdd;
+		this.cpu=cpu;
+	}
+	@Override
+	public Computer createComputer() {
+		return new PC(ram,hdd,cpu);
+	}
+}
+
+------------
+
+public class ServerFactory implements ComputerAbstractFactory {
+
+	private String ram;
+	private String hdd;
+	private String cpu;
+
+	public ServerFactory(String ram, String hdd, String cpu){
+		this.ram=ram;
+		this.hdd=hdd;
+		this.cpu=cpu;
+	}
+
+	@Override
+	public Computer createComputer() {
+		return new Server(ram,hdd,cpu);
+	}
+}
+
+------
+
+public class ComputerFactory {
+
+	public static Computer getComputer(ComputerAbstractFactory factory){
+		return factory.createComputer();
+	}
+}

@@ -1,0 +1,17 @@
+2 thằng này gần giống nhau:
+- Adapter tạo ra 1 interface mới
+- Decorator cũng tạo ra 1 wrapper class mới
+
+http://k2java.blogspot.com/2011/03/decorator-vs-adapter-pattern.html
+
+Giống nhau:
+
+- Cả hai đều là structural pattern như định nghĩa của GOF.
+- Cả hai sử dụng cách composition để cài đặt.
+
+Khác nhau:
+
+- Decorator cho phép thêm một tính năng mới vào một object nhưng không được phép sử dụng thừa kế. Nó cho phép thay đổi lúc thực thi (run-time).
+Adapter được sử dụng khi bạn có một interface, và bạn muốn ánh xạ interface đó đến một đối tượng khác có vai trò chức năng tương tự, nhưng là một interface khác.
+- Decorator có xu hướng hoạt động trên một đối tượng.
+Adapter có xu hướng hoạt động trên nhiều đối tượng (có thể wrap nhiều interface).

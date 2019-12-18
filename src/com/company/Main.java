@@ -10,6 +10,10 @@ import com.company.decorator.Car;
 import com.company.decorator.LuxuryCar;
 import com.company.decorator.SportsCar;
 import com.company.iterator.CollectionBox;
+import com.company.observer.ObserverImpl2;
+import com.company.observer.Observerimpl1;
+import com.company.observer.Source;
+import com.company.observer.SourceImpl;
 import com.company.proxy.CommandExecutor;
 import com.company.proxy.CommandExecutorProxy;
 
@@ -18,7 +22,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        iteratorDemo();
+        observerDemo();
     }
 
     /**
@@ -122,5 +126,12 @@ public class Main {
             // process the request
             c1.dispense(new Currency(amount));
         }
+    }
+
+    private static void observerDemo() {
+        Source mySource = new SourceImpl();
+        mySource.attach(new Observerimpl1());
+        mySource.attach(new ObserverImpl2());
+        mySource.notifyAllObserver();
     }
 }
