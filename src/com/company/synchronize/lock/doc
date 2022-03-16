@@ -1,1 +1,25 @@
 https://docs.google.com/document/d/13guYxoOTcCnEvTDTXqJJXQgxht6UIJ8aILP1yjCMmBY/edit#heading=h.xaa05uwe84mp
+
+******** Singleton k hề đơn giản ?
+public static DemoSingleton getInstance() {
+        // Check 1
+        if(instance == null) {
+            // Check 2
+            synchronized (DemoSingleton.class) {
+                // Check 3
+                if(instance == null) {
+                    instance = new DemoSingleton();
+                }
+            }
+        }
+        return instance;
+    }
+
+Để viết 1 fun singleton thì dễ nhưng cần optimize ?
+(1) Nếu không có check (1) -> từ những lần sau, khi instance đã có value r, nhưng vẫn phải chạy sync -> tốn time
+Chỉ cần sync khi mà lần đầu tiên chưa init data, init rồi thì return luôn
+
+(2) sync cho multiple thread 
+
+(3) Tiếp tục check null. Mặc dù đã pass qua 2 check kia. Tới được đây thì sẽ là case chạy lần đầu và cần init data
+Tuy nhiên vẫn có ngoại lệ khi có nhiều thread có thể truy cập cùng lúc ở đây. Check volatile doc
